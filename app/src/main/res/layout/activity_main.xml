@@ -6,6 +6,9 @@
 
     <TextView
         android:id="@+id/DisplayPanel"
+        android:scrollHorizontally="true"
+        android:ellipsize="end"
+        android:lines="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff"
@@ -20,49 +23,112 @@
 
         <TableRow
             android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_weight="0">
+
+            <Button
+                android:id="@+id/KeypadCopy"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="#aaaaaa"
+                android:onClick="functionKeyOnClick"
+                android:text="Copy"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/KeypadC"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="#aaaaaa"
+                android:textColor="#000000"
+                android:onClick="functionKeyOnClick"
+                android:text="C"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/KeypadAC"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="#aaaaaa"
+                android:textColor="#000000"
+                android:onClick="functionKeyOnClick"
+                android:text="AC"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/KeypadBS"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="#aaaaaa"
+                android:textColor="#000000"
+                android:onClick="functionKeyOnClick"
+                android:text="BS"
+                android:textSize="24sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow0"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
             <Button
-                android:id="@+id/KeypadCopy"
-                android:layout_width="80dp"
-                android:text="Copy"
-                android:onClick="functionKeyOnClick"
-                android:textSize="24sp"
-                android:layout_weight="1"
+                android:id="@+id/KeypadPow"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"/>
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="#aaaaaa"
+                android:textColor="#000000"
+                android:onClick="operatorKeyOnClick"
+                android:text="^"
+                android:textSize="24sp" />
 
             <Button
-                android:id="@+id/KeypadC"
-                android:layout_width="80dp"
-                android:text="C"
+                android:id="@+id/KeypadSquare"
+                android:text="√"
                 android:onClick="functionKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#aaaaaa"
+                android:textColor="#000000"
                 android:layout_height="match_parent"
-                android:layout_marginRight="5dp"/>
+                android:layout_width="wrap_content"
+                android:layout_marginRight="5dp" />
 
             <Button
-                android:id="@+id/KeypadAC"
-                android:layout_width="80dp"
-                android:text="AC"
+                android:id="@+id/KeypadLog"
+                android:text="log"
                 android:onClick="functionKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#aaaaaa"
+                android:textColor="#000000"
                 android:layout_height="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_marginRight="5dp"/>
 
             <Button
-                android:id="@+id/KeypadBS"
-                android:layout_width="80dp"
-                android:text="BS"
-                android:onClick="functionKeyOnClick"
+                android:id="@+id/KeypadDiv"
+                android:text="÷"
+                android:onClick="operatorKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#ff8800"
                 android:layout_height="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_marginRight="5dp"/>
         </TableRow>
 
@@ -78,6 +144,7 @@
                 android:onClick="numKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#555555"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -89,6 +156,7 @@
                 android:onClick="numKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#555555"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginRight="5dp" />
@@ -99,16 +167,18 @@
                 android:onClick="numKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#555555"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginRight="5dp"/>
 
             <Button
-                android:id="@+id/KeypadDiv"
-                android:text="/"
+                android:id="@+id/KeypadMulti"
+                android:text="×"
                 android:onClick="operatorKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#ff8800"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginRight="5dp"/>
@@ -126,6 +196,7 @@
                 android:onClick="numKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#555555"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -137,6 +208,7 @@
                 android:onClick="numKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#555555"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginRight="5dp" />
@@ -147,16 +219,18 @@
                 android:onClick="numKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#555555"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginRight="5dp" />
 
             <Button
-                android:id="@+id/KeypadMulti"
-                android:text="*"
+                android:id="@+id/KeypadSub"
+                android:text="-"
                 android:onClick="operatorKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#ff8800"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginRight="5dp"/>
@@ -174,6 +248,7 @@
                 android:onClick="numKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#555555"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -185,6 +260,7 @@
                 android:onClick="numKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#555555"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginRight="5dp" />
@@ -195,16 +271,18 @@
                 android:onClick="numKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#555555"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginRight="5dp" />
 
             <Button
-                android:id="@+id/KeypadSub"
-                android:text="-"
+                android:id="@+id/KeypadAdd"
+                android:text="+"
                 android:onClick="operatorKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#ff8800"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginRight="5dp"/>
@@ -217,15 +295,27 @@
             android:layout_height="match_parent" >
 
             <Button
-                android:id="@+id/Keypad0"
-                android:text="0"
-                android:onClick="numKeyOnClick"
+                android:id="@+id/KeypadSign"
+                android:text="+/-"
+                android:onClick="functionKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#555555"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp" />
+
+            <Button
+                android:id="@+id/Keypad0"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="#555555"
+                android:onClick="numKeyOnClick"
+                android:text="0"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/KeypadDot"
@@ -233,6 +323,7 @@
                 android:onClick="numKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
+                android:backgroundTint="#555555"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginRight="5dp" />
@@ -243,16 +334,7 @@
                 android:onClick="operatorKeyOnClick"
                 android:textSize="24sp"
                 android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:layout_width="wrap_content"
-                android:layout_marginRight="5dp"/>
-
-            <Button
-                android:id="@+id/KeypadAdd"
-                android:text="+"
-                android:onClick="operatorKeyOnClick"
-                android:textSize="24sp"
-                android:layout_weight="1"
+                android:backgroundTint="#ff8800"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_marginRight="5dp"/>

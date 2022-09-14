@@ -1,18 +1,17 @@
 package com.example.mydentaku;
 
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Button;
-import android.widget.Toast;
+        import java.math.BigDecimal;
+        import java.text.DecimalFormat;
+        import android.os.Bundle;
+        import androidx.appcompat.app.AppCompatActivity;
+        import android.view.View;
+        import android.widget.TextView;
+        import android.widget.Button;
+        import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     String strTemp = "";
-    String strTemp2 = "";
     String strResult = "0";
     int operator =0;
     int ct_flag =0;
@@ -25,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void numKeyOnClick(View v) {
         String strInKey = (String) ((Button) v).getText();
-
         if (strInKey.equals(".")) {
             if (strTemp.length() == 0) {
                 strTemp = strTemp + "0.";
@@ -86,6 +84,32 @@ public class MainActivity extends AppCompatActivity {
                     ct_flag = 0;
                 }
                 break;
+            // ルートの計算
+            case R.id.KeypadSquare:
+                BigDecimal bd1 = new BigDecimal(strTemp);
+                BigDecimal result = BigDecimal.ZERO;
+                double i3 = bd1.doubleValue();
+                double result3 = Math.sqrt(i3);
+                result = new BigDecimal(result3);
+                strTemp = result.toString();
+                break;
+            // ログの計算
+            case R.id.KeypadLog:
+                BigDecimal bd2 = new BigDecimal(strTemp);
+                BigDecimal result2 = BigDecimal.ZERO;
+                double i4 = bd2.doubleValue();
+                double result4 = Math.log(i4);
+                result2 = new BigDecimal(result4);
+                strTemp = result2.toString();
+                break;
+            // プラスマイナスの変換
+            case R.id.KeypadSign:
+                BigDecimal bd3 = new BigDecimal(strTemp);
+                BigDecimal result6 = BigDecimal.ZERO;
+                int i5 = bd3.intValue();
+                int result5 = i5 * -1;
+                result6 = new BigDecimal(result5);
+                strTemp = result6.toString();
         }
         showNumber(strTemp);
     }
@@ -94,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         if (operator!=0){
             if (strTemp.length() > 0){
                 BigDecimal bd1 = new BigDecimal(strTemp);
-                BigDecimal bd2 = new BigDecimal(strTemp2);
+                BigDecimal bd2 = new BigDecimal(strResult);
                 BigDecimal result = BigDecimal.ZERO;
                 switch (operator){
                     case R.id.KeypadAdd:
@@ -114,16 +138,23 @@ public class MainActivity extends AppCompatActivity {
                             toast.show();
                         }
                         break;
+                    // 累乗の計算
+                    case R.id.KeypadPow:
+                        double i1 = bd1.doubleValue();
+                        double i2 = bd2.doubleValue();
+                        double result2 = Math.pow(i2,i1);
+                        result = new BigDecimal(result2);
+                        break;
                 }
                 if (result.toString().indexOf(".")>0){
-                    strTemp2 = result.toString().replaceAll("\\.0+$|0+$","");
+                    strResult = result.toString().replaceAll("\\.0+$|0+$","");
                 }else{
-                    strTemp2 = result.toString();
+                    strResult = result.toString();
                 }
             }
         }else {
             if (strTemp.length() > 0){
-                strTemp2 = strTemp;
+                strResult = strTemp;
             }
         }
 
@@ -131,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (v.getId()==R.id.KeypadEq){
             operator = 0;
-            strTemp = strTemp2;
+            strTemp = strResult;
             showNumber(strTemp);
         }else{
             operator = v.getId();
